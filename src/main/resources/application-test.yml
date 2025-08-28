@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: ecommerce-test
+
+  datasource:
+    url: jdbc:h2:mem:ecommerce-test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: testUser
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop  # Crear y eliminar el esquema en cada prueba
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  h2:
+    console:
+      enabled: false
+
+  # Kafka en test → desactivado o configurado "dummy"
+  kafka:
+    bootstrap-servers: localhost:9099  # Puerto donde un broker Kafka de prueba podría estar corriendo
+    consumer:
+      group-id: ecommerce-test
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+# Logging
+logging:
+  level:
+    root: WARN
+    com.example: DEBUG

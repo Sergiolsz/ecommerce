@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "ProductAvro",
+  "namespace": "com.example.ecommerce.infrastructure.avro",
+  "fields": [
+    {"name": "productId", "type": "int"},
+    {"name": "brandId", "type": "int"},
+    {"name": "priceList", "type": "int"},
+    {"name": "price", "type": "double"},
+    {"name": "currency", "type": "string"},
+    {"name": "startDate", "type": "string"},
+    {"name": "endDate", "type": "string"},
+    {"name": "priority", "type": "int"}
+  ]
+}
