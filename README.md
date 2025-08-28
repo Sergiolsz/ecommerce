@@ -255,3 +255,82 @@ Este proyecto es un **microservicio Spring Boot** con integración **Kafka** y *
 | `logging.level.org.hibernate.type.descriptor.sql.BasicBinder` |                     | TRACE                                                            | Muestra los valores que se enlazan a los parámetros SQL.                                                                                                    |
 
 ---
+
+# COMANDOS
+
+## COMANDOS DE DOCKER
+
+1️⃣ Gestión de contenedores
+
+| Comando                                                | Descripción                                                   |
+|--------------------------------------------------------|---------------------------------------------------------------|
+| docker ps                                              | Lista los contenedores en ejecución.                          |
+| docker ps                                              | Lista contenedores en ejecución.                              |
+| docker ps -a                                           | Lista todos los contenedores, incluso los detenidos.          |
+| docker start <nombre:container>	                       | Inicia un contenedor detenido.                                |
+| docker stop <nombre:container>	                        | Detiene un contenedor en ejecución.                           |
+| docker restart <nombre:container>                      | Reinicia un contenedor.                                       |
+| docker rm <nombre:container>	                          | Elimina un contenedor detenido.                               |
+| docker rm -f <nombre:container>	                       | Elimina un contenedor forzando su detención.                  |
+| docker logs <nombre:container>	                        | Muestra los logs de un contenedor.                            |
+| docker logs -f <nombre:container>	                     | Sigue los logs en tiempo real (follow).                       |
+| docker logs --tail <numero:lineas> <nombre:container>	 | Muestra solo las últimas n líneas de log.                     |
+| docker exec -it <nombre:container> /bin/bash           | Abre un shell interactivo dentro de un contenedor.            |
+| docker inspect <nombre:container>	                     | Muestra información detallada de un contenedor.               |
+| docker top <nombre:container>                          | Muestra los procesos en ejecución dentro de un contenedor.    |
+| docker stats <nombre:container>	                       | Muestra estadísticas de uso en tiempo real de un contenedor.  |
+
+2️⃣ Gestión de imágenes
+
+| Comando                         | Descripción                                                   |
+|---------------------------------|---------------------------------------------------------------|
+| docker images	                  |Lista todas las imágenes locales.|
+| docker rmi <nombre:imagen>	     |Elimina una imagen local.|
+| docker build -t <nombre:tag> .	 |Construye una imagen desde un Dockerfile.|
+| docker pull <nombre:imagen>	           |Descarga una imagen del repositorio.|
+| docker push <nombre:imagen>	           |Sube una imagen al repositorio.|
+
+3️⃣ Docker Compose
+
+| Comando                               | Descripción                                                   |
+|---------------------------------------|---------------------------------------------------------------|
+| docker-compose up	                    |Levanta todos los servicios del docker-compose.yml.|
+| docker-compose up -d	                 |Levanta los servicios en segundo plano (detached).|
+| docker-compose down	                  |Detiene y elimina los servicios creados.|
+| docker-compose logs	                  |Muestra logs de todos los servicios.|
+| docker-compose logs -f	               |Sigue logs en tiempo real.|
+| docker-compose logs <nombre:service>	 |Muestra logs de un servicio específico.|
+| docker-compose build	                 |Construye las imágenes definidas en docker-compose.yml.|
+| docker-compose stop	                  |Detiene los servicios sin eliminarlos.|
+| docker-compose restart	               |Reinicia los servicios.|
+| docker-compose ps	                    |Lista los servicios y su estado.|
+
+4️⃣ Redes y volúmenes
+
+
+| Comando                                 | Descripción                                                   |
+|-----------------------------------------|---------------------------------------------------------------|
+| docker network ls	                      | Lista todas las redes de Docker.|
+| docker network inspect <nombre:network> |Información detallada de una red.|
+| docker volume ls	                       |Lista todos los volúmenes.|
+| docker volume inspect <nombre:volumen>	 |Información detallada de un volumen.|
+| docker volume rm <nombre:volumen>	      |Elimina un volumen.|
+
+5️⃣ Limpieza y mantenimiento
+
+| Comando                 | Descripción                                                  |
+|-------------------------|--------------------------------------------------------------|
+| docker system prune	    | Elimina contenedores detenidos, redes y volúmenes no usados. |
+| docker system prune -a	 | Además de lo anterior, elimina imágenes no usadas.           |
+| docker image prune	     | Elimina imágenes no referenciadas.                           |
+| docker container prune	 | Elimina contenedores detenidos.                              |
+| docker volume prune	    | Elimina volúmenes no referenciados.                          |
+| docker network prune	   | Elimina redes no usadas.                                     |
+
+6️⃣ Información del sistema
+
+| Comando         | Descripción                                                 |
+|-----------------|-------------------------------------------------------------|
+| docker info	    | Información general del entorno Docker.                     |
+| docker version	 | Muestra la versión de Docker y Docker Compose.              |
+| docker stats	   | Muestra estadísticas de uso de contenedores en tiempo real. |
