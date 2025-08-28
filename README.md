@@ -258,79 +258,112 @@ Este proyecto es un **microservicio Spring Boot** con integración **Kafka** y *
 
 # COMANDOS
 
-## COMANDOS DE DOCKER
+# Docker Commands Cheatsheet 🐳
 
-1️⃣ Gestión de contenedores
+## ⚡ Gestión de contenedores
+| Comando | Descripción |
+|---------|-------------|
+| `docker ps` | Lista los contenedores en ejecución. |
+| `docker ps -a` | Lista todos los contenedores, incluyendo los detenidos. |
+| `docker stop <container>` | Detiene un contenedor en ejecución. |
+| `docker start <container>` | Arranca un contenedor previamente detenido. |
+| `docker restart <container>` | Reinicia un contenedor. |
+| `docker rm <container>` | Elimina un contenedor detenido. |
+| `docker rm -f <container>` | Fuerza la eliminación de un contenedor en ejecución. |
 
-| Comando                                                | Descripción                                                   |
-|--------------------------------------------------------|---------------------------------------------------------------|
-| docker ps                                              | Lista los contenedores en ejecución.                          |
-| docker ps                                              | Lista contenedores en ejecución.                              |
-| docker ps -a                                           | Lista todos los contenedores, incluso los detenidos.          |
-| docker start <nombre:container>	                       | Inicia un contenedor detenido.                                |
-| docker stop <nombre:container>	                        | Detiene un contenedor en ejecución.                           |
-| docker restart <nombre:container>                      | Reinicia un contenedor.                                       |
-| docker rm <nombre:container>	                          | Elimina un contenedor detenido.                               |
-| docker rm -f <nombre:container>	                       | Elimina un contenedor forzando su detención.                  |
-| docker logs <nombre:container>	                        | Muestra los logs de un contenedor.                            |
-| docker logs -f <nombre:container>	                     | Sigue los logs en tiempo real (follow).                       |
-| docker logs --tail <numero:lineas> <nombre:container>	 | Muestra solo las últimas n líneas de log.                     |
-| docker exec -it <nombre:container> /bin/bash           | Abre un shell interactivo dentro de un contenedor.            |
-| docker inspect <nombre:container>	                     | Muestra información detallada de un contenedor.               |
-| docker top <nombre:container>                          | Muestra los procesos en ejecución dentro de un contenedor.    |
-| docker stats <nombre:container>	                       | Muestra estadísticas de uso en tiempo real de un contenedor.  |
+---
 
-2️⃣ Gestión de imágenes
+## 🖼 Gestión de imágenes
+| Comando | Descripción |
+|---------|-------------|
+| `docker images` | Lista todas las imágenes locales. |
+| `docker rmi <image>` | Elimina una imagen de Docker. |
+| `docker rmi -f <image>` | Fuerza la eliminación de una imagen que está siendo usada. |
+| `docker build -t <image-name> .` | Construye una imagen desde un Dockerfile. |
+| `docker pull <image>` | Descarga una imagen desde un repositorio (Docker Hub). |
 
-| Comando                         | Descripción                                                   |
-|---------------------------------|---------------------------------------------------------------|
-| docker images	                  |Lista todas las imágenes locales.|
-| docker rmi <nombre:imagen>	     |Elimina una imagen local.|
-| docker build -t <nombre:tag> .	 |Construye una imagen desde un Dockerfile.|
-| docker pull <nombre:imagen>	           |Descarga una imagen del repositorio.|
-| docker push <nombre:imagen>	           |Sube una imagen al repositorio.|
+---
 
-3️⃣ Docker Compose
+## 📜 Logs y debugging
+| Comando | Descripción |
+|---------|-------------|
+| `docker logs <container>` | Muestra los logs de un contenedor. |
+| `docker logs -f <container>` | Muestra los logs en tiempo real (follow). |
+| `docker exec -it <container> /bin/bash` | Accede a la terminal de un contenedor en ejecución. |
+| `docker inspect <container>` | Muestra información detallada de un contenedor. |
+| `docker top <container>` | Muestra los procesos en ejecución dentro de un contenedor. |
 
-| Comando                               | Descripción                                                   |
-|---------------------------------------|---------------------------------------------------------------|
-| docker-compose up	                    |Levanta todos los servicios del docker-compose.yml.|
-| docker-compose up -d	                 |Levanta los servicios en segundo plano (detached).|
-| docker-compose down	                  |Detiene y elimina los servicios creados.|
-| docker-compose logs	                  |Muestra logs de todos los servicios.|
-| docker-compose logs -f	               |Sigue logs en tiempo real.|
-| docker-compose logs <nombre:service>	 |Muestra logs de un servicio específico.|
-| docker-compose build	                 |Construye las imágenes definidas en docker-compose.yml.|
-| docker-compose stop	                  |Detiene los servicios sin eliminarlos.|
-| docker-compose restart	               |Reinicia los servicios.|
-| docker-compose ps	                    |Lista los servicios y su estado.|
+---
 
-4️⃣ Redes y volúmenes
+## 🏗 Docker Compose
+| Comando | Descripción |
+|---------|-------------|
+| `docker-compose up` | Levanta todos los servicios definidos en `docker-compose.yml`. |
+| `docker-compose up -d` | Levanta los servicios en segundo plano (detached mode). |
+| `docker-compose down` | Detiene y elimina los contenedores creados por Docker Compose. |
+| `docker-compose logs` | Muestra los logs de los servicios. |
+| `docker-compose logs -f` | Muestra los logs en tiempo real de todos los servicios. |
+| `docker-compose ps` | Lista los contenedores gestionados por Docker Compose. |
+| `docker-compose build` | Construye las imágenes definidas en el Compose. |
+| `docker-compose stop` | Detiene los servicios sin eliminar los contenedores. |
+| `docker-compose start` | Inicia los servicios previamente detenidos. |
 
+---
 
-| Comando                                 | Descripción                                                   |
-|-----------------------------------------|---------------------------------------------------------------|
-| docker network ls	                      | Lista todas las redes de Docker.|
-| docker network inspect <nombre:network> |Información detallada de una red.|
-| docker volume ls	                       |Lista todos los volúmenes.|
-| docker volume inspect <nombre:volumen>	 |Información detallada de un volumen.|
-| docker volume rm <nombre:volumen>	      |Elimina un volumen.|
+## 🧹 Limpieza y mantenimiento
+| Comando | Descripción |
+|---------|-------------|
+| `docker system prune` | Elimina contenedores, redes, imágenes y caché no utilizados. |
+| `docker volume prune` | Elimina volúmenes no utilizados. |
+| `docker network prune` | Elimina redes no utilizadas. |
 
-5️⃣ Limpieza y mantenimiento
+---
 
-| Comando                 | Descripción                                                  |
-|-------------------------|--------------------------------------------------------------|
-| docker system prune	    | Elimina contenedores detenidos, redes y volúmenes no usados. |
-| docker system prune -a	 | Además de lo anterior, elimina imágenes no usadas.           |
-| docker image prune	     | Elimina imágenes no referenciadas.                           |
-| docker container prune	 | Elimina contenedores detenidos.                              |
-| docker volume prune	    | Elimina volúmenes no referenciados.                          |
-| docker network prune	   | Elimina redes no usadas.                                     |
+# Comandos útiles del proyecto ⚡
 
-6️⃣ Información del sistema
+## 💻 Java & Maven
+| Comando | Descripción |
+|---------|-------------|
+| `mvn clean` | Limpia los ficheros compilados del proyecto. |
+| `mvn compile` | Compila el proyecto. |
+| `mvn package` | Compila y genera el JAR de la aplicación. |
+| `mvn install` | Compila, empaqueta e instala la dependencia en el repositorio local. |
+| `mvn test` | Ejecuta los tests unitarios. |
+| `mvn verify` | Ejecuta tests y verifica resultados. |
+| `mvn dependency:tree` | Muestra el árbol de dependencias del proyecto. |
+| `mvn spring-boot:run` | Arranca la aplicación Spring Boot directamente. |
 
-| Comando         | Descripción                                                 |
-|-----------------|-------------------------------------------------------------|
-| docker info	    | Información general del entorno Docker.                     |
-| docker version	 | Muestra la versión de Docker y Docker Compose.              |
-| docker stats	   | Muestra estadísticas de uso de contenedores en tiempo real. |
+---
+
+## 🧪 Tests
+| Comando | Descripción |
+|---------|-------------|
+| `mvn test -Dspring.profiles.active=test` | Ejecuta tests usando el perfil `test`. |
+| `./mvnw test` | Ejecuta tests usando el wrapper de Maven (si está incluido en el proyecto). |
+
+---
+
+## 📦 Jar & ejecución
+| Comando | Descripción |
+|---------|-------------|
+| `java -jar target/app.jar` | Ejecuta la aplicación desde el JAR generado. |
+| `java -jar target/app.jar --spring.profiles.active=prod` | Arranca la app con un perfil específico. |
+
+---
+
+## 🔧 Git
+| Comando | Descripción |
+|---------|-------------|
+| `git clone <repo>` | Clona el repositorio del proyecto. |
+| `git pull` | Trae los últimos cambios del repositorio remoto. |
+| `git status` | Muestra el estado de los archivos locales. |
+| `git branch` | Lista las ramas locales. |
+| `git checkout <branch>` | Cambia a la rama indicada. |
+
+---
+
+## 🗂 Limpieza & utilidades
+| Comando | Descripción |
+|---------|-------------|
+| `rm -rf target/` | Elimina la carpeta de compilación para limpiar todo. |
+| `mvn clean package -DskipTests` | Genera el JAR sin ejecutar tests (útil para Docker). |
